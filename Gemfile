@@ -14,4 +14,5 @@ end
 
 group :development do
   gem 'debugger'
+  gem 'erb2haml'
 end

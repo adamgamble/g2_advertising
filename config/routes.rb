@@ -5,6 +5,7 @@ G2Advertising::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
+  root :to => "pages#user_dashboard"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
