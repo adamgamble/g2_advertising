@@ -21,6 +21,6 @@
     .container
       -flash.keys.each do |key|
         .alert
-          %button{:type => "button", "data-dismiss" => "alert"}.close X
+          %button.close{:type => "button", "data-dismiss" => "alert"} X
           =flash[key]
       = yield
