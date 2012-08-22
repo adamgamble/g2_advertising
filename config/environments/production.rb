@@ -1,4 +1,5 @@
 G2Advertising::Application.configure do
+  config.assets.compile = true
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -13,9 +14,6 @@ G2Advertising::Application.configure do
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
-
-  # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
 
   # Generate digests for assets URLs
   config.assets.digest = true
