@@ -19,4 +19,8 @@
             -else
               %li= link_to "Login", new_user_session_path
     .container
+      -flash.keys.each do |key|
+        .alert
+          %button{:type => "button", "data-dismiss" => "alert"}.close X
+          =flash[key]
       = yield
