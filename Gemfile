@@ -6,6 +6,7 @@ gem 'activeadmin'
 gem 'jquery-rails'
 gem 'pg'
 gem 'newrelic_rpm'
+gem 'twilio-ruby'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

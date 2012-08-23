@@ -1,0 +1,2 @@
+class EmailNotification < NotificationPreference
+end
