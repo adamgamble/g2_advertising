@@ -10,4 +10,19 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :notification_preferences
+  has_many :proofs
+
+  def notify_of_proof_delivery
+    notify "New Proof Available"
+  end
+
+  def notify message
+    self.notification_preferences.each do |notification_preference|
+      notification_preference.notify! message
+    end
+  end
+
+  def to_s
+    email
+  end
 end

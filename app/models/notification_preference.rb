@@ -2,6 +2,7 @@ class NotificationPreference < ActiveRecord::Base
   attr_accessible :email_address, :phone_number, :type, :user_id
 
   belongs_to :user
+  has_many :notification_events
 
   def notify! message
     case self.type
@@ -23,6 +24,7 @@ class NotificationPreference < ActiveRecord::Base
       :to => self.phone_number,
       :body => message
     )
+    NotificationEvent.create(:message => message)
   end
 
 end
