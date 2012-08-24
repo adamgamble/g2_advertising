@@ -4,7 +4,7 @@ ActiveAdmin.register Proof do
     column :user
     column :created_at
     column "image" do |proof|
-      image_tag proof.proof_pdf.encode(:png).url
+      image_tag proof.proof_pdf.encode(:png).url if proof.proof_pdf
     end
     default_actions
   end
