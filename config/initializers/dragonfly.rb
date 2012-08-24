@@ -1,4 +1,4 @@
-require_relative 'env.rb'
+require_relative 'env.rb' unless Rails.env.production?
 require 'dragonfly'
 
 app = Dragonfly[:images]
