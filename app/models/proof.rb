@@ -1,5 +1,5 @@
 class Proof < ActiveRecord::Base
-  attr_accessible :user_id, :pdf
+  attr_accessible :user_id, :pdf, :pdf_file_name
   validates_presence_of :user_id
 
   belongs_to :user
