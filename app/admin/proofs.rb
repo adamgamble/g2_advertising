@@ -4,7 +4,7 @@ ActiveAdmin.register Proof do
     column :user
     column :created_at
     column "image" do |proof|
-      link_to "#{image_tag proof.pdf.url(:thumb)}", proof.pdf.url(:original) if proof.pdf
+      link_to "#{image_tag proof.pdf.url(:thumb)}".html_safe, proof.pdf.url(:original) if proof.pdf
     end
     default_actions
   end
