@@ -7,8 +7,8 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'newrelic_rpm'
 gem 'twilio-ruby'
-gem 'dragonfly', '~>0.9.12'
-gem 'fog'
+gem 'aws-sdk'
+gem 'paperclip'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

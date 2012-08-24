@@ -1,11 +1,20 @@
 class Proof < ActiveRecord::Base
-  attr_accessible :user_id, :proof_pdf
+  attr_accessible :user_id, :pdf
   validates_presence_of :user_id
 
   belongs_to :user
   after_create :notify_user
 
-  image_accessor :proof_pdf
+  has_attached_file :pdf,
+    :styles => { :thumb => { :geometry => "200x200>",
+      :format => :jpg
+    } },
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket            => ENV['S3_BUCKET'],
+      :access_key_id     => ENV['amazon_s3_access_key'],
+      :secret_access_key => ENV['amazon_s3_secret_key']
+    }
 
   private
   def notify_user

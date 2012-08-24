@@ -4,7 +4,7 @@ ActiveAdmin.register Proof do
     column :user
     column :created_at
     column "image" do |proof|
-      image_tag proof.proof_pdf.encode(:png).url if proof.proof_pdf
+      image_tag proof.pdf.url(:thumb) if proof.pdf
     end
     default_actions
   end
@@ -12,7 +12,7 @@ ActiveAdmin.register Proof do
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "", :multipart => true do
       f.input :user, :as => :select, :collection => User.all
-      f.input :proof_pdf, :as => :file
+      f.input :pdf, :as => :file
     end
     f.buttons
   end
