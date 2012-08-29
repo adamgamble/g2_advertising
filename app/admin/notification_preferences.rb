@@ -3,7 +3,7 @@ ActiveAdmin.register NotificationPreference do
   filter :user
   index do
     column :type
-    column :phone_number
+    column :phone_email
     column :email_address
     column "User", :sortable => :user_id do |notification_preference|
       link_to notification_preference.user.email, admin_user_path(notification_preference.user)
