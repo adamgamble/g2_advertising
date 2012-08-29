@@ -7,9 +7,11 @@ ActiveAdmin.register User do
     default_actions
   end
 
-  form do |f|
-    f.inputs "" do
+  form :html => { :enctype => "multipart/form-data" } do |f|
+    f.inputs "", :multipart => true do
       f.input :email
+      f.input :name
+      f.input :logo, :as => :file
       f.input :password
       f.input :password_confirmation
     end

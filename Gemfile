@@ -9,6 +9,7 @@ gem 'newrelic_rpm'
 gem 'twilio-ruby'
 gem 'aws-sdk'
 gem 'paperclip'
+gem 'state_machine'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120824052700) do
+ActiveRecord::Schema.define(:version => 20120829011634) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -55,11 +55,10 @@ ActiveRecord::Schema.define(:version => 20120824052700) do
 
   create_table "notification_preferences", :force => true do |t|
     t.integer  "user_id"
-    t.string   "phone_number"
     t.string   "type"
-    t.string   "email_address"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "phone_email"
   end
 
   create_table "proofs", :force => true do |t|
@@ -70,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20120824052700) do
     t.string   "pdf_content_type"
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
+    t.string   "state"
   end
 
   create_table "users", :force => true do |t|
@@ -85,6 +85,11 @@ ActiveRecord::Schema.define(:version => 20120824052700) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string   "name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

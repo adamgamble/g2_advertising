@@ -1,8 +1,10 @@
 ActiveAdmin.register Proof do
   filter :user
+  filter :state, :as => :select, :collection => [["Sent to Client", "sent_to_client"], ["Client Responded", "client_responded"]]
   index do
     column :user
     column :created_at
+    column :state
     column "image" do |proof|
       link_to "#{image_tag proof.pdf.url(:thumb)}".html_safe, proof.pdf.url(:original) if proof.pdf
     end

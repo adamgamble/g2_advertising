@@ -1,0 +1,15 @@
+=form_for @notification_preference do |f|
+  =f.label "Phone Number/Email Address"
+  =f.text_field :phone_email
+  %br
+  SMS
+  =f.radio_button :type, "SMSNotification"
+  %br
+  Email
+  =f.radio_button :type, "EmailNotification"
+  %br
+  =f.submit
+
+
+
+

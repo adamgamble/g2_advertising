@@ -6,11 +6,23 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :logo
   # attr_accessible :title, :body
 
   has_many :notification_preferences
   has_many :proofs
+
+
+  has_attached_file :logo,
+    :styles => { :thumb => { :geometry => "200x200>",
+      :format => :png
+    } },
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket            => ENV['S3_BUCKET'],
+      :access_key_id     => ENV['amazon_s3_access_key'],
+      :secret_access_key => ENV['amazon_s3_secret_key']
+    }
 
   def notify_of_proof_delivery
     notify "New Proof Available"

@@ -16,6 +16,12 @@ class Proof < ActiveRecord::Base
       :secret_access_key => ENV['amazon_s3_secret_key']
     }
 
+  state_machine :state, :initial => :sent_to_client do
+    event :client_response do
+      transition :sent_to_client => :client_responded
+    end
+  end
+
   private
   def notify_user
     self.user.notify_of_proof_delivery

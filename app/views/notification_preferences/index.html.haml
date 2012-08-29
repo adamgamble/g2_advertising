@@ -1,0 +1,16 @@
+%h1 Notification Preferences
+
+=link_to "New Notification Preference", new_notification_preference_path, :class => "btn"
+%br
+%br
+%table.table-bordered.table-striped.table
+  %tr
+    %th Type
+    %th Phone/Email
+    %th
+  -@notification_preferences.each do |notification_preference|
+    %tr
+      %td=notification_preference.type == "SMSNotification" ? "SMS Message" : "Email"
+      %td=notification_preference.phone_email
+      %td=link_to "Delete", notification_preference_path(notification_preference), :method => :delete
+
