@@ -6,6 +6,6 @@ class UserMailer < ActionMailer::Base
   end
 
   def notify_matt(subject)
-    mail(:to => "adamgamble@gmail.com", :subject => subject)
+    mail(:to => "matt@g2advertising.com", :subject => subject)
   end
 end
