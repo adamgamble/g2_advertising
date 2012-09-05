@@ -7,7 +7,7 @@ G2Advertising::Application.routes.draw do
 
   root :to => "pages#user_dashboard"
 
-  resources :proofs, :only => [:show]
+  resources :proofs, :only => [:show, :update]
   resources :notification_preferences, :only => [:index, :new, :create, :destroy]
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,19 +1,18 @@
 %h1 Proofs
 %table.table.table-striped.table-bordered
   %tr
-    %th Proof Created At
     %th Print Deadline
     %th In Home Date
-    %th Name
     %th
     %th
   -current_user.proofs.each do |proof|
     %tr
-      %td=proof.created_at.strftime("%m-%d-%y")
-      %td N/A
-      %td N/A
-      %td N/A
+      %td=proof.print_date
+      %td=proof.in_home_date
       %td
-        .label.label-important Action Required
+        -if proof.state == "sent_to_client"
+          .label.label-important Action Required
+        -if proof.state == "ready_for_print"
+          .label.label-success Ready for Print
       %td
         = link_to "View Proof", proof_path(proof)

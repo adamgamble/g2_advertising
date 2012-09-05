@@ -4,4 +4,8 @@ class UserMailer < ActionMailer::Base
   def notify_of_proof(email)
     mail(:to => email, :subject => "New proof available!")
   end
+
+  def notify_matt(subject)
+    mail(:to => "adamgamble@gmail.com", :subject => subject)
+  end
 end

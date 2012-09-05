@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
     notify "New Proof Available"
   end
 
+  def notify_of_resubmitted_proof_delivery
+    notify "Proof Resubmitted for approval Available"
+  end
+
   def notify message
     self.notification_preferences.each do |notification_preference|
       notification_preference.notify! message
