@@ -7,8 +7,8 @@
     %th
   -current_user.proofs.each do |proof|
     %tr
-      %td=proof.print_date
-      %td=proof.in_home_date
+      %td=proof.print_date.strftime("%m-%d-%y")
+      %td=proof.in_home_date.strftime("%m-%d-%y")
       %td
         -if proof.state == "sent_to_client"
           .label.label-important Action Required
