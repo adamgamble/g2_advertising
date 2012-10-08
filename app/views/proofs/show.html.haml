@@ -1,7 +1,7 @@
 %h1=current_user.name
 =form_for(@proof) do |f|
   .row
-    .span6.well=@proof.urgent_message.gsub("\n","<br />").html_safe
+    .span6.well#urgent_message=@proof.urgent_message.gsub("\n","<br />").html_safe
   .row
     .span4
       %label.radio

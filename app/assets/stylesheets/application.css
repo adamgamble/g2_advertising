@@ -12,3 +12,7 @@
  *= require bootstrap.min
  *= require bootstrap-responsive.min
  */
+
+#urgent_message {
+  color: red;
+}
