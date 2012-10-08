@@ -19,5 +19,13 @@ end
 
 group :development do
   gem 'debugger'
-  gem 'erb2haml'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'ffaker'
+end
+
+group :test do
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
+  gem 'launchy'
 end

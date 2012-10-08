@@ -5,9 +5,12 @@ development:
   username: adamgamble
   password: ee6296yp
 
-test:
+test: &test
   adapter: postgresql
   database: g2_advertising_test
   host: localhost
   username: adamgamble
   password: ee6295yp
+
+cucumber:
+  <<: *test

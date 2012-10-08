@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120905035028) do
+ActiveRecord::Schema.define(:version => 20121008212824) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -61,8 +61,20 @@ ActiveRecord::Schema.define(:version => 20120905035028) do
     t.string   "phone_email"
   end
 
+  create_table "organizations", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "proof_join_stores", :force => true do |t|
+    t.integer  "proof_id"
+    t.integer  "store_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "proofs", :force => true do |t|
-    t.integer  "user_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "pdf_file_name"
@@ -74,6 +86,20 @@ ActiveRecord::Schema.define(:version => 20120905035028) do
     t.date     "print_date"
     t.text     "urgent_message"
     t.text     "proof_changes"
+  end
+
+  create_table "stores", :force => true do |t|
+    t.string   "name"
+    t.integer  "organization_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "user_join_stores", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "store_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

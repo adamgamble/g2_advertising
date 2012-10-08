@@ -10,7 +10,8 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :notification_preferences
-  has_many :proofs
+  has_many :user_join_stores
+  has_many :stores, :through => :user_join_stores
 
 
   has_attached_file :logo,

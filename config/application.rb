@@ -15,6 +15,12 @@ if defined?(Bundler)
   Bundler.require(:default, :assets, Rails.env)
 end
 
+PDF_SETTINGS_HASH = {
+  :styles => { :thumb => { :geometry => "200x200>",
+    :format => :jpg
+  } }
+}
+
 module G2Advertising
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

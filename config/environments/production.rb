@@ -1,4 +1,5 @@
 G2Advertising::Application.configure do
+
   config.assets.compile = false
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -63,3 +64,16 @@ G2Advertising::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 end
+
+PDF_SETTINGS_HASH = {
+  :styles => { :thumb => { :geometry => "200x200>",
+    :format => :jpg
+  } },
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket            => ENV['S3_BUCKET'],
+    :access_key_id     => ENV['amazon_s3_access_key'],
+    :secret_access_key => ENV['amazon_s3_secret_key']
+  }
+}
+

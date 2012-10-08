@@ -1,18 +1,19 @@
-%h1 Proofs
-%table.table.table-striped.table-bordered
-  %tr
-    %th Print Deadline
-    %th In Home Date
-    %th
-    %th
-  -current_user.proofs.each do |proof|
+- current_user.stores.each do |store|
+  %h2= store.name
+  %table.table.table-striped.table-bordered
     %tr
-      %td=proof.print_date.strftime("%m-%d-%y")
-      %td=proof.in_home_date.strftime("%m-%d-%y")
-      %td
-        -if proof.state == "sent_to_client"
-          .label.label-important Action Required
-        -if proof.state == "ready_for_print"
-          .label.label-success Ready for Print
-      %td
-        = link_to "View Proof", proof_path(proof)
+      %th Print Deadline
+      %th In Home Date
+      %th
+      %th
+    - store.proofs.each do |proof|
+      %tr{:id => "proof_#{proof.id}"}
+        %td=proof.print_date.strftime("%m-%d-%y")
+        %td=proof.in_home_date.strftime("%m-%d-%y")
+        %td
+          -if proof.state == "sent_to_client"
+            .label.label-important Action Required
+          -if proof.state == "ready_for_print"
+            .label.label-success Ready for Print
+        %td
+          = link_to "View Proof", proof_path(proof)
