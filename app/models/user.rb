@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :notification_preferences
   has_many :user_join_stores
   has_many :stores, :through => :user_join_stores
+  has_one :user_message
 
 
   has_attached_file :logo,

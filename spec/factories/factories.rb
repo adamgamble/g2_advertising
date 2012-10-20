@@ -19,6 +19,7 @@ FactoryGirl.define do
 
   factory :proof do
     urgent_message { Faker::Lorem.paragraph }
+    proof_deadline { Time.now + 3.days }
     in_home_date   { Time.now + 2.weeks }
     print_date     { Time.now + 1.week }
     pdf            { File.open("public/relationship_graph.pdf") }

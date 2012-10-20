@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121008212824) do
+ActiveRecord::Schema.define(:version => 20121009005518) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20121008212824) do
     t.date     "print_date"
     t.text     "urgent_message"
     t.text     "proof_changes"
+    t.datetime "proof_deadline"
   end
 
   create_table "stores", :force => true do |t|
@@ -93,6 +94,7 @@ ActiveRecord::Schema.define(:version => 20121008212824) do
     t.integer  "organization_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.text     "message"
   end
 
   create_table "user_join_stores", :force => true do |t|
@@ -120,6 +122,7 @@ ActiveRecord::Schema.define(:version => 20121008212824) do
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
     t.string   "name"
+    t.text     "message"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

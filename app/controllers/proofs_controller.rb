@@ -21,6 +21,9 @@ class ProofsController < ApplicationController
         flash[:alert] = "Your proof will be resubmitted with the changes requested!"
         @proof.resubmit_with_changes!
         redirect_to "/" and return
+      else
+        @approval_required = true
+        render :action => :show and return
       end
     else
       flash[:alert] = "There were errors saving your proof"

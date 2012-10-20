@@ -1,5 +1,5 @@
 class Store < ActiveRecord::Base
-  attr_accessible :name, :organization_id
+  attr_accessible :name, :organization_id, :message
 
   belongs_to :organization
   has_many :user_join_stores

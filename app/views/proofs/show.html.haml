@@ -1,25 +1,35 @@
-%h1=current_user.name
+%br
 =form_for(@proof) do |f|
   .row
-    .span6.well#urgent_message=@proof.urgent_message.gsub("\n","<br />").html_safe
+    .span6.well.urgent_message
+      %strong=@proof.urgent_message.gsub("\n","<br />").html_safe
   .row
-    .span4
+    .span6
+      %table.table.table-striped.table-bordered
+        %tr
+          %th Proof Deadline
+        %tr
+          %td= @proof.proof_deadline.strftime("%m-%d-%y %l:%M %P")
+  .row
+    .span4{:class => @approval_required ? "approval_required" : nil}
+      - if @approval_required
+        .well.approval_required.urgent_message Please approve or request changes
       %label.radio
-        =radio_button_tag :approval, :no_changes, true
+        =radio_button_tag :approval, :no_changes, false, :class => "changes_radio"
         Approved No Changes
       %br
       %br
       %br
       %br
       %label.radio
-        =radio_button_tag :approval, :approved_with_changes
+        =radio_button_tag :approval, :approved_with_changes, false, :class => "changes_radio"
         Approved Provided changes listed below
       %br
       %br
       %br
       %br
       %label.radio
-        =radio_button_tag :approval, :resubmit_proof
+        =radio_button_tag :approval, :resubmit_proof, false, :class => "changes_radio"
         Resubmit proof with the changes listed below
     .span3
       =link_to "#{image_tag @proof.pdf.url(:thumb)}".html_safe, @proof.pdf.url(:original), :class => "proof_image", :target => "_blank"
@@ -28,7 +38,20 @@
       =link_to "Open/Download Proof", @proof.pdf.url(:original), :class => "btn", :target => "_blank"
       %br
       %br
-    .span7
-      =f.text_area :proof_changes, :class => "span6", :rows => 10
+    .span7.proof_changes
+      =f.text_area :proof_changes, :class => "span6", :rows => 10, :placeholder => "Include any comments or changes in this box"
     .span7
       =f.submit "Submit", :class => "btn"
+:javascript
+  $(document).ready(function() {
+    $('.proof_changes').hide();
+    $('.changes_radio').live("click", handle_radio_button_click);
+  })
+
+  function handle_radio_button_click() {
+    if ($(this).val() == "no_changes") {
+      $('.proof_changes').hide();
+    } else {
+      $('.proof_changes').show();
+    }
+  }

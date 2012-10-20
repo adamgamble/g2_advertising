@@ -13,6 +13,11 @@
  *= require bootstrap-responsive.min
  */
 
-#urgent_message {
+.urgent_message {
   color: red;
+}
+
+.approval_required {
+  border: 1px solid red;
+  padding: 5px;
 }

@@ -1,5 +1,5 @@
 class Proof < ActiveRecord::Base
-  attr_accessible :pdf, :pdf_file_name, :in_home_date, :print_date, :approval, :urgent_message, :proof_changes
+  attr_accessible :pdf, :pdf_file_name, :in_home_date, :print_date, :approval, :urgent_message, :proof_changes, :proof_deadline
   attr_accessor :approval
 
   has_many :proof_join_stores
