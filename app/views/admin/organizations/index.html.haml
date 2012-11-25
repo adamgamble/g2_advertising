@@ -1,0 +1,19 @@
+%h2 Organizations
+
+= link_to "New Organization", new_admin_organization_path, :class => "btn"
+%br
+%br
+%table.table.table-striped.table-bordered.table-condensed
+  %thead
+    %tr
+      %th Name
+      %th
+  %tbody
+    - @organizations.each do |organization|
+      %tr
+        %td= link_to organization.name, admin_organization_path(organization)
+        %td
+          = link_to "Edit", edit_admin_organization_path(organization)
+          |
+          = link_to "Delete", admin_organization_path(organization), :method => :delete, :confirm => "Are you sure?"
+= paginate @organizations

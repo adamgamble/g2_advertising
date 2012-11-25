@@ -1,0 +1,25 @@
+%h2= @organization.name
+
+%ul.breadcrumb
+  %li
+    = link_to "Organizations", admin_organizations_path
+    %span.divider /
+  %li.active= @organization.name
+
+= link_to "New Store", new_admin_store_path + "?store[organization_id]=#{@organization.id}", :class => "btn"
+%br
+%br
+%table.table.table-striped.table-bordered.table-condensed
+  %thead
+    %tr
+      %th Store Name
+      %th
+  %tbody
+    - @organization.stores.each do |store|
+      %tr
+        %td= store.name
+        %td
+          = link_to "Edit", edit_admin_store_path(store)
+          = link_to "Delete", admin_store_path(store), :method => :delete, :confirm => "Are you sure?"
+
+  %tbody

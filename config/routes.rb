@@ -10,6 +10,8 @@ G2Advertising::Application.routes.draw do
   namespace :admin do
     root :to => "dashboard#index"
     resources :admin_users
+    resources :organizations
+    resources :stores
   end
 
   # The priority is based upon order of creation:

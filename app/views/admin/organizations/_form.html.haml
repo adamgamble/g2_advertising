@@ -1,0 +1,5 @@
+- path = @organization.new_record? ? admin_organizations_path : admin_organization_path(@organization)
+= simple_form_for @organization, :url => path, :html => {:class => 'form-horizontal' } do |f|
+  = f.input :name
+  %br
+  = f.submit

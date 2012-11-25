@@ -1,0 +1,11 @@
+%h2= "New store"
+%ul.breadcrumb
+  %li
+    = link_to "Organizations", admin_organizations_path
+    %span.divider /
+  %li
+    = link_to @store.organization.name, admin_organization_path(@store.organization)
+    %span.divider /
+  %li.active New Store
+
+= render "form"

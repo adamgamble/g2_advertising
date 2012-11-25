@@ -1,6 +1,5 @@
 class Admin::AdminUsersController < Admin::BaseController
   def index
-    params[:page] = 1 unless params[:page]
     @admin_users = AdminUser.page(params[:page])
   end
 

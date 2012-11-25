@@ -1,0 +1,6 @@
+- path = @store.new_record? ? admin_stores_path : admin_store_path(@store)
+= simple_form_for @store, :url => path, :html => {:class => 'form-horizontal' } do |f|
+  = f.input :organization_id, :as => :select, :collection => Organization.all, :selected => @store.organization.try(:id)
+  = f.input :name
+  %br
+  = f.submit

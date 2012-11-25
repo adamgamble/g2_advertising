@@ -13,8 +13,8 @@
             G2 Advertising Admin Panel
           %ul.nav
             %li= link_to "Dashboard", "/"
+            %li= link_to "Organizations", admin_organizations_path
             %li= link_to "Admin Users", admin_admin_users_path
-            %li= link_to "Store Management", "#"
             %li= link_to "Notification Preferences", notification_preferences_path
           %ul.nav.pull-right
             -if current_admin_user
