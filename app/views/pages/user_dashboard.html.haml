@@ -1,3 +1,5 @@
+- unless current_user.stores.any?
+  %h2 There are no stores associated with this account. Please contact an administrator
 - current_user.stores.each do |store|
   %h2= store.name
   - if store.message

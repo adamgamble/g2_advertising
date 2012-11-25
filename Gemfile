@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 gem 'haml-rails'
-gem 'activeadmin'
 gem 'jquery-rails'
 gem 'pg'
 gem 'newrelic_rpm'
@@ -10,6 +9,9 @@ gem 'twilio-ruby'
 gem 'aws-sdk'
 gem 'paperclip'
 gem 'state_machine'
+gem 'devise'
+gem 'kaminari'
+gem 'simple_form'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

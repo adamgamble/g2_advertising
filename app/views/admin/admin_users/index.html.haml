@@ -1,0 +1,19 @@
+%h2 Admin Users
+
+= link_to "New Admin User", new_admin_admin_user_path, :class => "btn"
+%br
+%br
+%table.table.table-striped.table-bordered.table-condensed
+  %thead
+    %tr
+      %th Email
+      %th Last Login
+      %th
+  %tbody
+    - @admin_users.each do |admin_user|
+      %tr
+        %td= admin_user.email
+        %td= admin_user.last_sign_in_at.strftime("%m-%d-%y - %I:%M %p") rescue "N/A"
+        %td
+          = link_to "Delete", admin_admin_user_path(admin_user), :method => :delete, :confirm => "Are you sure?"
+= paginate @admin_users

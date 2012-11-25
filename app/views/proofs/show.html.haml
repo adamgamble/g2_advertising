@@ -40,14 +40,16 @@
       %br
     .span7.proof_changes
       =f.text_area :proof_changes, :class => "span6", :rows => 10, :placeholder => "Include any comments or changes in this box"
-    .span7
-      =f.submit "Submit", :class => "btn"
+    - if f.object.state == "sent_to_client"
+      .span7
+        =f.submit "Submit", :class => "btn"
 :javascript
   $(document).ready(function() {
     $('.proof_changes').hide();
     $('.changes_radio').live("click", handle_radio_button_click);
   })
 
+:javascript
   function handle_radio_button_click() {
     if ($(this).val() == "no_changes") {
       $('.proof_changes').hide();

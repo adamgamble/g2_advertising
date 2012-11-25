@@ -1,14 +1,17 @@
 G2Advertising::Application.routes.draw do
   devise_for :users
-
-  ActiveAdmin.routes(self)
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :admin_users
 
   root :to => "pages#user_dashboard"
 
   resources :proofs, :only => [:show, :update]
   resources :notification_preferences, :only => [:index, :new, :create, :destroy]
+
+  namespace :admin do
+    root :to => "dashboard#index"
+    resources :admin_users
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

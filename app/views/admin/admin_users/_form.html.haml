@@ -1,0 +1,7 @@
+- path = @admin_user.new_record? ? admin_admin_users_path : admin_admin_user_path(@admin_user)
+= simple_form_for @admin_user, :url => path, :html => {:class => 'form-horizontal' } do |f|
+  = f.input :email
+  = f.input :password
+  = f.input :password_confirmation
+  %br
+  = f.submit

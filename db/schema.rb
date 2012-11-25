@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20121009005518) do
   end
 
   create_table "proofs", :force => true do |t|
+    t.integer  "user_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "pdf_file_name"
@@ -122,7 +123,6 @@ ActiveRecord::Schema.define(:version => 20121009005518) do
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
     t.string   "name"
-    t.text     "message"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
